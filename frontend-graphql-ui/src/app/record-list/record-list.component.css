@@ -1,0 +1,138 @@
+/* Apply responsive and visual styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-list-header {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.button-container p,
+.button-container select {
+  margin: 10px;
+}
+
+.button-container button,
+.button-container select,
+.button-container input[type="file"] {
+  width: 110px;
+  max-width: 100%;
+  margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .button-container button,
+  .button-container select {
+    flex-basis: 100%;
+  }
+}
+
+#pageSize {
+  width: 100px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+li {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+  color: #333;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.button-spacing {
+  margin-right: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: 30px;
+}
+
+.example-header-image {
+  background-image: url('https://img.freepik.com/free-photo/closeup-electronic-circuit-board-with-cpu-microchip-electronic-components-background_1387-746.jpghttps://img.freepik.com/premium-vector/laptop-vector-drawing-isolated-hand-drawn-engraved-style-illustration_379823-7552.jpg');
+  background-size: cover;
+}
+
+.red-icon {
+  color: red;
+}
+

@@ -1,0 +1,91 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">Error: {{ error.message }}</div>
+<div *ngIf="products" class="container">
+  <h2 class="product-list-header">Products List</h2>
+
+  <div class="button-container">
+    <p>
+      <mat-form-field>
+        <mat-label>Page Size:</mat-label>
+        <mat-select
+          [(ngModel)]="pageSize"
+          (selectionChange)="onPageSizeChange()"
+        >
+          <mat-option *ngFor="let size of pageSizes" [value]="size">
+            {{ size }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+    <p>Total Records: {{ totalRecords }}</p>
+    <p>Page {{ pageNumber }} of {{ totalPages }}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="prevPage()"
+      [disabled]="pageNumber === 1"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      <!-- Mat icon for "Previous" -->
+      Previous
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="nextPage()"
+      [disabled]="pageNumber === totalPages"
+    >
+      Next
+      <mat-icon>keyboard_arrow_right</mat-icon>
+      <!-- Mat icon for "Next" -->
+    </button>
+    <!-- Add delete button -->
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openProductDialog('add')"
+    >
+      <mat-icon>add</mat-icon>
+      <!-- Mat icon for "Add" -->
+      Add
+    </button>
+
+    <!-- Add spacing -->
+    <span class="button-spacing"></span>
+    <input type="file" (change)="onFileChange($event)" />
+    <button (click)="uploadFile()">Upload File</button>
+  </div>
+
+  <div class="card-container">
+    <mat-card class="example-card" *ngFor="let product of products">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ product.productName }}</mat-card-title>
+        <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ product.price | currency : "USD" : "symbol" }}</p>
+        <p><strong>Colors:</strong> {{ product.colors.join(", ") }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          (click)="openProductDialog('update', product)"
+        >
+          <mat-icon color="primary">edit</mat-icon>
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="deleteProduct(product.id)"
+        >
+          <mat-icon class="red-icon">delete</mat-icon>
+          Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

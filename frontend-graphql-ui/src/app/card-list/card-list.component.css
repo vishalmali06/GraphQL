@@ -1,0 +1,37 @@
+/* card-list.component.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .example-card {
+    max-width: 400px;
+    margin: 10px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  
+
+  .container {
+    overflow-x: hidden; /* Hide horizontal overflow */
+  }
+  
+  .carousel {
+    display: flex;
+    scroll-snap-type: x mandatory; /* Enable snapping to each card */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding: 10px 0; /* Add some padding */
+  }
+  
+  .example-card {
+    min-width: 300px; /* Set minimum width for each card */
+    flex: 0 0 auto; /* Allow flex items to shrink or grow */
+    margin-right: 10px; /* Add spacing between cards */
+    scroll-snap-align: start; /* Snap card to the start of the container */
+  }
+  
